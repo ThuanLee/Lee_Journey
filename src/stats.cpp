@@ -37,7 +37,7 @@ void Stats::initHP()
     this->heartSprite.setTexture(this->heartTexture);
     this->heartSprite.setScale(2.f, 2.f);
     this->borderSprite.setTexture(this->borderTexture);
-    this->borderSprite.setScale(1.7f, 1.7f);
+    this->borderSprite.setScale(1.5f, 1.5f);
     
     this->heartSprite.setPosition(1160.f, 5.f);
     this->HP.push_back(this->heartSprite);
@@ -49,15 +49,16 @@ void Stats::initHP()
     this->HP.push_back(this->heartSprite);
 }
 
-void Stats::updateHP()
+bool Stats::updateHP()
 {
-    if (this->iHP != 0)
+    if (this->iHP > 0)
     {
         this->borderSprite.setPosition(this->HP[iHP - 1].getPosition());
         this->HP.erase(this->HP.begin() + this->iHP - 1);
         this->HP.push_back(this->borderSprite);
         this->iHP --;
     }
+    return (this->iHP == 0 ? false : true);
 }
 
 void Stats::renderStats(sf::RenderTarget &target)

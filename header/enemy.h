@@ -19,6 +19,9 @@ private:
     float vel;
     bool dir;
     bool canKillEnemy;
+
+    //sf::RectangleShape shape;
+
     void initVariables();
 
 public:
@@ -31,9 +34,9 @@ public:
 
     bool killEnemy();
     void enemyOutScreen();
+    void insVel(float newVel);
+
     void updateCollision(Player *p);
-
-
     void updatePos();
     void updateFrameIdx();
     void updateSprite();
@@ -58,6 +61,8 @@ public:
     void initVariables();
     void initTexture();
     void spawnEnemy();
+
+    void enemyStronger();
     void updateEnemies(Player *p);
     void renderEnemies(sf::RenderTarget &target);
 };

@@ -7,6 +7,7 @@ Player::Player()
     this->initObjects();
     this->initTexture();
     this->initSprite();
+    this->initSound();
 }
 
 Player::~Player()
@@ -29,6 +30,7 @@ void Player::initVariables()
     this->onGround = false;
     this->isFall = true;
     this->isHurt = false;
+    this->isDie = false;
 }
 
 void Player::initObjects()
@@ -41,7 +43,7 @@ void Player::initTexture()
 {
     if (!this->texture.loadFromFile("assets/character/playerSpriteSheet.png"))
     {
-        std::cout << "ERROR::PLAYER::INITTEXTURE::Can't load image!!!" << "\n";
+        std::cout << "ERROR::PLAYER::INITTEXTURE::Can't load file!!!" << "\n";
     }
 }
 
@@ -49,6 +51,16 @@ void Player::initSprite()
 {
     this->sprite.setTexture(this->texture);
     this->sprite.setPosition(100.f, 300.f);
+}
+
+void Player::initSound()
+{
+    if (!this->soundBuffer.loadFromFile("assets/sound/hurtSound.wav"))
+    {
+        std::cout << "ERROR::PLAYER::INITSOUND::Can't load file!!!" << "\n";
+    }
+    this->sound.setBuffer(this->soundBuffer);
+    this->sound.setVolume(70.f);
 }
 
 sf::FloatRect Player::getGlobalBounds()
@@ -78,10 +90,19 @@ bool Player::hurtStats()
     return this->isHurt;
 }
 
+bool Player::die()
+{
+    return this->isDie;
+}
+
 void Player::switchStatus()
 {
-    this->stats->updateHP();
+    if (!this->stats->updateHP())
+    {
+        this->isDie = true;
+    }
     this->isHurt = true;
+    this->sound.play();
     this->hurtTimer.restart();
 }
 

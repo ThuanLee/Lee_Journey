@@ -91,7 +91,6 @@ void Map::checkCollision(Player *p)
                 && pRight < collider.left + collider.width
                 && pBottom > collider.top)
             {
-                std::cout << "Collision LEFT!!" << std::endl;
                 //p->setVelocity(0.f, dir_x);
                 p->setPosition(collider.left - pWidth - 1.f, dir_x);
             }
@@ -101,7 +100,6 @@ void Map::checkCollision(Player *p)
                 && pRight > collider.left + collider.width
                 && pBottom > collider.top)
             {
-                std::cout << "Collision RIGHT!!" << std::endl;
                 //p->setVelocity(0.f, dir_x);
                 p->setPosition(collider.left + collider.width + 1.f, dir_x);
             }

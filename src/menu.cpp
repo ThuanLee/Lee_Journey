@@ -20,6 +20,7 @@ void Menu::initVariables()
     this->Grey.b = 150;
 
     this->mainMenu = true;
+    this->isGameOver = false;
 }
 
 void Menu::initFont()
@@ -63,6 +64,9 @@ void Menu::initText()
     this->exitText.setFillColor(sf::Color::White);
     this->exitText.setOrigin(this->exitText.getGlobalBounds().width / 2, 0.f);
     this->exitText.setPosition(640.f, 500.f);
+
+    //GAME OVER
+    
 }
 
 
@@ -85,6 +89,15 @@ void Menu::initSprite()
     this->menuBackground.setTexture(this->background);
     this->menuBackground.scale(2.f, 2.f);
     this->menuBackground.setPosition(0.f, 0.f); 
+
+    //Load game over background
+    if (!this->gameOver.loadFromFile("assets/menu/gameover.png"))
+    {
+        std::cout << "ERROR::MENU::INITSPRITE::Can't load file!!" << std::endl;
+    }
+    this->gameOverSprite.setTexture(this->gameOver);
+    this->gameOverSprite.scale(2.f, 1.5f);
+    this->gameOverSprite.setPosition(0.f, 200.f);
 }
 
 
@@ -165,6 +178,11 @@ int Menu::updateMenu(sf::Vector2f mousePosition)
     }
 
     return 0;
+}
+
+void Menu::renderGameOver(sf::RenderTarget &target)
+{
+    target.draw(this->gameOverSprite);
 }
 
 void Menu::renderMenu(sf::RenderTarget &target)

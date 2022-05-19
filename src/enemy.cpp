@@ -14,7 +14,7 @@ Enemy::~Enemy()
 
 void Enemy::initVariables()
 {
-    this->vel = 3.f;
+    this->vel = 2.f;
 
     this->frameIdx = {0, 0};
     this->frameRect.width = ENEMY_FRAME_WIDTH;
@@ -67,6 +67,14 @@ void Enemy::enemyOutScreen()
     }
 }
 
+void Enemy::insVel(float delta)
+{
+    if (this->vel < 10.f)
+    {
+        this->vel += delta;
+    }
+}
+
 void Enemy::updateCollision(Player *p)
 {
     const float pHeight = p->getGlobalBounds().height;
@@ -84,12 +92,16 @@ void Enemy::updateCollision(Player *p)
 
     if (this->dir == LEFT)
     {
-        eGlobalBound = sf::FloatRect(eLeft + 90.f, eTop + 86.f, 56.f, 42.f);
+        eGlobalBound = sf::FloatRect(eLeft + 96.f, eTop + 88.f, 50.f, 20.f);
     }
     else
     {
-        eGlobalBound = sf::FloatRect(eLeft + 44.f, eTop + 86.f, 60.f, 42.f);
+        eGlobalBound = sf::FloatRect(eLeft + 54.f, eTop + 88.f, 50.f, 20.f);
     }
+
+    // this->shape.setOutlineThickness(0.5f);
+    // this->shape.setPosition(eGlobalBound.left, eGlobalBound.top);
+    // this->shape.setSize(sf::Vector2f(eGlobalBound.width, eGlobalBound.height));
 
     //Enemy out of screen
     this->enemyOutScreen();
@@ -168,7 +180,8 @@ void Enemy::updateEnemy(Player *p)
 void Enemy::renderEnemy(sf::RenderTarget &target)
 {
     target.draw(this->sprite);
-}
+    //target.draw(this->shape);
+}  
 
 //****************************Enemies*******************************//
 
@@ -207,6 +220,19 @@ void Enemies::spawnEnemy()
         newEnemy.initSprite(this->texture);
         this->enemies.push_back(newEnemy);
         this->spawnTimer.restart();
+    }
+}
+
+void Enemies::enemyStronger()
+{
+    if (this->spawnTime > 0.3f)
+    {
+        this->spawnTime -= 0.1f;
+    }
+
+    for (auto enemy: this->enemies)
+    {
+        enemy.insVel(1.f);
     }
 }
 

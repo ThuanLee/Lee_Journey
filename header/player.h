@@ -16,6 +16,9 @@ private:
     sf::Sprite sprite;
     sf::IntRect frame;
 
+    sf::SoundBuffer soundBuffer;
+    sf::Sound sound;
+
     Physics *physics;
     Stats *stats;
     
@@ -28,12 +31,14 @@ private:
     bool onGround;
     bool isFall;
     bool isHurt;
+    bool isDie;
 
     //Player inits
     void initVariables();
     void initObjects();
     void initTexture();
     void initSprite();
+    void initSound();
 
 public:
     Player();
@@ -44,6 +49,7 @@ public:
     void setVelocity(float v, bool dir_x);
     void setPosition(float pos, bool dir_x);
     bool hurtStats();
+    bool die();
 
     //Player status functions
     void switchStatus();

@@ -66,13 +66,24 @@ void Game::getEvent()
         switch (this->ev.type)
         {
             case sf::Event::Closed:
+
                 this->window->close();
                 break;
+
             case sf::Event::LostFocus:
+
                 this->isGamePause = true;
                 break;
+
             case sf::Event::KeyPressed:
-                if (this->ev.key.code == sf::Keyboard::Escape)
+
+                if (this->isGameOver == true)
+                {
+                    this->isGameOver = false;
+                    this->isGamePause = false;
+                    this->gameRestart();
+                }
+                else if (this->ev.key.code == sf::Keyboard::Escape)
                 {
                     if (!this->isGamePause)
                     {
@@ -83,6 +94,7 @@ void Game::getEvent()
                         this->isGamePause = false;
                     }
                 }
+
         }
         //Reset frame of sprite rect
         this->player->resetFrameRect(this->ev);
@@ -95,11 +107,27 @@ void Game::updateMousePosition()
     this->mousePosition = this->window->mapPixelToCoords(this->mouse.getPosition(*this->window));
 }
 
+void Game::updateDifficulty()
+{
+    if (this->score->upDiffLevel())
+    {
+        this->enemies->enemyStronger();
+    } 
+}
+
 void Game::update()
 {
     this->getEvent();
     this->updateMousePosition();
+    this->updateDifficulty();
     
+    //Game Over
+    if (this->player->die())
+    {
+        this->isGameOver = true;
+        this->isGamePause = true;
+    }
+
     //Handle menu update while game paused
     if (this->isGamePause)
     {
@@ -143,7 +171,14 @@ void Game::render()
 
     if (this->isGamePause)
     {
-        this->menu->renderMenu(*this->window);
+        if (this->isGameOver)
+        {
+            this->menu->renderGameOver(*this->window);
+        }
+        else
+        {
+            this->menu->renderMenu(*this->window);
+        }
     }
 
     this->window->display();

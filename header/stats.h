@@ -23,7 +23,7 @@ public:
     Stats();
     ~Stats();
 
-    void updateHP();
+    bool updateHP();
     void renderStats(sf::RenderTarget &target);
 };
 

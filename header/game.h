@@ -30,6 +30,7 @@ private:
     //Game logic
     bool isGamePause;
     bool isGameRestart;
+    bool isGameOver;
 
     //Game inits
     void initVariables();
@@ -45,11 +46,12 @@ public:
     bool running();
     void gameRestart();
     void getEvent();
+    
     void updateMousePosition();
+    void updateDifficulty();
+
     void update();
     void render();
-
-
 };
 
 #endif
