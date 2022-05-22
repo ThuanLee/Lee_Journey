@@ -18,4 +18,9 @@
   **Ý tưởng:** Dựa trên những game sinh tồn Endless như Dino, Flappy Bird, Temple run,...  
 
 ### III, Các chức năng của trò chơi
+  - Menu đơn giản
+  - Điều khiển nhân vật bằng các phím `W`, `A`, `S`, `D` và `Space`
+  - Có bộ tính điểm
+  - Độ khó tăng dần theo thời gian
+  - Có theme song và một số sound effect
     
