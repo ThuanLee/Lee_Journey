@@ -9,9 +9,11 @@ class Score
 {
 private:
     float score;
-    std::string scoreString;
-    sf::Font scoreFont;
-    sf::Text scoreText;
+    std::string string;
+    sf::Font font;
+    sf::Text scoreText, yourScoreText, restartGameText;
+
+    sf::Clock clock;
 
     unsigned int lv;
     int Level[LEVEL_MAX];
@@ -28,7 +30,7 @@ public:
     bool upDiffLevel();
 
     void updateScore();
-    void renderScore(sf::RenderTarget &target);
+    void renderScore(sf::RenderTarget &target, bool gameOver);
 
 };
 

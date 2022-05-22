@@ -6,6 +6,7 @@ Menu::Menu()
     this->initFont();
     this->initText();
     this->initSprite();
+    this->initSound();
 }    
 
 Menu::~Menu()
@@ -34,7 +35,7 @@ void Menu::initFont()
 void Menu::initText()
 {
     //START GAME text
-    this->newgameText.setFont(font);
+    this->newgameText.setFont(this->font);
     this->newgameText.setString("NEW GAME");
     this->newgameText.setCharacterSize(60);
     this->newgameText.setFillColor(sf::Color::White);
@@ -42,7 +43,7 @@ void Menu::initText()
     this->newgameText.setPosition(640.f, 350.f);
 
     //MAIN MENU text
-    this->mainmenuText.setFont(font);
+    this->mainmenuText.setFont(this->font);
     this->mainmenuText.setString("MAIN MENU");
     this->mainmenuText.setCharacterSize(60);
     this->mainmenuText.setFillColor(Grey);
@@ -50,7 +51,7 @@ void Menu::initText()
     this->mainmenuText.setPosition(640.f, 350.f);
 
     //CONTINUE text
-    this->continueText.setFont(font);
+    this->continueText.setFont(this->font);
     this->continueText.setString("CONTINUE");
     this->continueText.setCharacterSize(60);
     this->continueText.setFillColor(Grey);
@@ -58,15 +59,12 @@ void Menu::initText()
     this->continueText.setPosition(640.f, 425.f);
 
     //EXIT text
-    this->exitText.setFont(font);
+    this->exitText.setFont(this->font);
     this->exitText.setString("EXIT");
     this->exitText.setCharacterSize(60);
     this->exitText.setFillColor(sf::Color::White);
     this->exitText.setOrigin(this->exitText.getGlobalBounds().width / 2, 0.f);
     this->exitText.setPosition(640.f, 500.f);
-
-    //GAME OVER
-    
 }
 
 
@@ -97,10 +95,23 @@ void Menu::initSprite()
     }
     this->gameOverSprite.setTexture(this->gameOver);
     this->gameOverSprite.scale(2.f, 1.5f);
-    this->gameOverSprite.setPosition(0.f, 200.f);
+    this->gameOverSprite.setPosition(0.f, 150.f);
 }
 
+void Menu::initSound()
+{
+    if (!this->selectSoundBuffer.loadFromFile("assets/sound/selectSound.wav"))
+    {
+        std::cout << "ERROR::MENU::INITSOUND::Can't load file!!" << std::endl;
+    }
+    this->selectSound.setBuffer(this->selectSoundBuffer);
+    this->selectSound.setVolume(50.f);
+}
 
+bool Menu::isMainMenu()
+{
+    return this->mainMenu;
+}
 
 int Menu::updateMenu(sf::Vector2f mousePosition)
 {
@@ -114,6 +125,7 @@ int Menu::updateMenu(sf::Vector2f mousePosition)
             this->newgameText.setFillColor(sf::Color::Red);
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && clock.getElapsedTime().asSeconds() >= 0.15f) 
             {
+                this->selectSound.play();
                 this->mainMenu = false;
                 return 1;
             }
@@ -131,6 +143,7 @@ int Menu::updateMenu(sf::Vector2f mousePosition)
             this->mainmenuText.setFillColor(sf::Color::Red);
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
             {
+                this->selectSound.play();
                 this->mainMenu = true;
                 clock.restart();
                 return 2;
@@ -150,6 +163,7 @@ int Menu::updateMenu(sf::Vector2f mousePosition)
             this->continueText.setFillColor(sf::Color::Red);
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
             {
+                this->selectSound.play();
                 return 3;
             }
         }

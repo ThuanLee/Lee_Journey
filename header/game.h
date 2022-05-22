@@ -18,7 +18,7 @@ private:
     sf::Mouse mouse;
     sf::Vector2f mousePosition;
 
-    enum MENU {STARTGAME = 1, EXIT = -1};
+    sf::Music themeSong;
 
     //Objects
     Player *player;
@@ -36,6 +36,7 @@ private:
     void initVariables();
     void initWindow();
     void initOjects();
+    void initThemeSong();
 
 public:
     //Constructor, Destructor

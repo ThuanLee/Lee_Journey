@@ -5,6 +5,7 @@ Game::Game()
     this->initVariables();
     this->initWindow();
     this->initOjects();
+    this->initThemeSong();
 }
 
 Game::~Game()
@@ -45,6 +46,17 @@ void Game::initOjects()
     this->score = new Score();
 }
 
+void Game::initThemeSong()
+{
+    if (!this->themeSong.openFromFile("assets/sound/themeSong.wav"))
+    {
+        std::cout << "ERROR::GAME::INITTHEMESONG::Can't load file!!!" << std::endl;
+    }
+    this->themeSong.setLoop(true);
+    this->themeSong.setVolume(25.f);
+    this->themeSong.play();
+}
+
 bool Game::running()
 {
     return this->window->isOpen();
@@ -73,28 +85,36 @@ void Game::getEvent()
             case sf::Event::LostFocus:
 
                 this->isGamePause = true;
+                this->themeSong.pause();
+                break;
+
+            case sf::Event::GainedFocus:
+                
+                this->themeSong.play();
                 break;
 
             case sf::Event::KeyPressed:
 
-                if (this->isGameOver == true)
+                if (this->ev.key.code == sf::Keyboard::Escape)
                 {
-                    this->isGameOver = false;
-                    this->isGamePause = false;
-                    this->gameRestart();
-                }
-                else if (this->ev.key.code == sf::Keyboard::Escape)
-                {
-                    if (!this->isGamePause)
+                    if (this->isGameOver)
                     {
-                        this->isGamePause = true;
+                        this->isGameOver = false;
+                        this->isGamePause = false;
+                        this->gameRestart();
                     }
                     else
                     {
-                        this->isGamePause = false;
+                        if (!this->isGamePause)
+                        {
+                            this->isGamePause = true;
+                        }
+                        else if (!this->menu->isMainMenu())
+                        {
+                            this->isGamePause = false;
+                        }
                     }
                 }
-
         }
         //Reset frame of sprite rect
         this->player->resetFrameRect(this->ev);
@@ -167,7 +187,7 @@ void Game::render()
     this->map->renderMap(*this->window);
     this->player->renderPlayer(*this->window);
     this->enemies->renderEnemies(*this->window);
-    this->score->renderScore(*this->window);
+    this->score->renderScore(*this->window, this->isGameOver);
 
     if (this->isGamePause)
     {

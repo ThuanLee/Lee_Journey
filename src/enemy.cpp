@@ -14,7 +14,7 @@ Enemy::~Enemy()
 
 void Enemy::initVariables()
 {
-    this->vel = 2.f;
+    this->vel = 3.f;
 
     this->frameIdx = {0, 0};
     this->frameRect.width = ENEMY_FRAME_WIDTH;
@@ -225,7 +225,7 @@ void Enemies::spawnEnemy()
 
 void Enemies::enemyStronger()
 {
-    if (this->spawnTime > 0.3f)
+    if (this->spawnTime > 0.2f)
     {
         this->spawnTime -= 0.1f;
     }

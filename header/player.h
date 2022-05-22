@@ -23,7 +23,7 @@ private:
     Stats *stats;
     
     //Movement and animation variables
-    sf::Clock idleTimer, runTimer, jumpTimer, fallTimer, attackTimer, hurtTimer;
+    sf::Clock idleTimer, runTimer, jumpTimer, fallTimer, hurtTimer;
 
     //Game logics
     bool startFrame;

@@ -23,7 +23,6 @@ void Player::initVariables()
     this->runTimer.restart();
     this->jumpTimer.restart();
     this->fallTimer.restart();
-    this->attackTimer.restart();
     
     this->startFrame = true;
     this->turnLeft = false;

@@ -1,5 +1,7 @@
 #include "player.h"
 
+/*********************************Movement********************************/
+
 void Player::updateMovement()
 {
     bool isIdle = true;
@@ -19,36 +21,25 @@ void Player::updateMovement()
         this->playerFallAnimation();
         isIdle = false;
     }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::J) && this->onGround)
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
-        this->playerAttackAnimation();     
-        this->sprite.move(0.05f * (this->turnLeft ? -1 : 1), 0.f);
+        this->turnLeft = false;
+        this->playerMoveAnimation();
+        this->physics->move(1.f, 0.f);
         isIdle = false;
-        isAttack = true;
     }
-
-    if (!isAttack)
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        {
-            this->turnLeft = false;
-            this->playerMoveAnimation();
-            this->physics->move(1.f, 0.f);
-            isIdle = false;
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        {
-            this->turnLeft = true;
-            this->playerMoveAnimation();
-            this->physics->move(-1.f, 0.f);
-            isIdle = false;
-        }
-        else if (isIdle)
-        {
-            this->playerIdleAnimation();
-        }
+        this->turnLeft = true;
+        this->playerMoveAnimation();
+        this->physics->move(-1.f, 0.f);
+        isIdle = false;
     }
-
+    else if (isIdle)
+    {
+        this->playerIdleAnimation();
+    }
 }
 
 void Player::hurtSprite()
@@ -88,8 +79,7 @@ void Player::resetFrameRect(sf::Event ev)
     {
         if (ev.key.code == sf::Keyboard::D
         || ev.key.code == sf::Keyboard::A
-        || ev.key.code == sf::Keyboard::Space
-        || ev.key.code == sf::Keyboard::J)
+        || ev.key.code == sf::Keyboard::Space)
         {
             this->startFrame = true;
         }
@@ -106,4 +96,58 @@ void Player::updateSprite()
 
     //Move player sprite
     this->sprite.move(this->physics->getVelocity());
+}
+
+/*********************************Animation********************************/
+
+void Player::playerIdleAnimation()
+{
+    if (this->onGround && this->idleTimer.getElapsedTime().asSeconds() >= 0.12f)
+    {
+        this->frame.top = 0;
+        this->frame.left += FRAME_WIDTH;
+        if (this->frame.left >= FRAME_WIDTH * 4)
+        {
+            this->frame.left = 0;
+        }  
+        this->idleTimer.restart();
+    }
+}
+
+void Player::playerMoveAnimation()
+{
+    if (this->onGround && this->runTimer.getElapsedTime().asSeconds() >= 0.09f)
+    {   
+        this->frame.top = FRAME_HEIGHT;
+        this->frame.left += FRAME_WIDTH;
+        if (this->frame.left >= FRAME_WIDTH * 6)
+        {
+            this->frame.left = 0;
+        }
+        this->runTimer.restart();
+    }
+}
+
+void Player::playerJumpAnimation()
+{
+    if (this->jumpTimer.getElapsedTime().asSeconds() >= 0.15f)
+    {
+        this->frame.top = FRAME_HEIGHT * 2;
+        this->frame.left = 0;
+        this->jumpTimer.restart();
+    }
+}
+
+void Player::playerFallAnimation()
+{
+    if (this->fallTimer.getElapsedTime().asSeconds() >= 0.15f)
+    {
+        this->frame.top = FRAME_HEIGHT * 3;
+        this->frame.left += FRAME_WIDTH;
+        if (this->frame.left >= FRAME_WIDTH * 2)
+        {
+            this->frame.left = 0;
+        }
+        this->fallTimer.restart();
+    }
 }
