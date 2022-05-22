@@ -24,3 +24,10 @@
   - Độ khó tăng dần theo thời gian
   - Có theme song và một số sound effect
     
+### IV, Các kỹ thuật lập trình được sử dụng
+  - Sử dụng thư viện đồ họa SFML
+  - Lập trình hướng đối tượng (class)
+  - Con trỏ, cấp phát động
+  - Sử dụng thuật toán xử lý va chạm AABB  
+
+### V, Kết luận
