@@ -5,7 +5,7 @@
   Cách 1: Trên Github, chọn Code => Download ZIP  
   Cách 2: Mở terminal tại thư mục muốn lưu project, sử dụng lệnh `git init` để khởi tạo Git, sau đó dùng lệnh `git clone https://github.com/ThuanLee/Lee_Journey.git` để clone project về máy  
   ### B2: Cài đặt Make
-  Tải và cài đặt Make từ đường link sau: [(http://gnuwin32.sourceforge.net/packages/make.htm)](http://gnuwin32.sourceforge.net/packages/make.htm)  
+  Tải và cài đặt Make từ đường link sau: [http://gnuwin32.sourceforge.net/packages/make.htm]http://gnuwin32.sourceforge.net/packages/make.htm
   Thêm đường dẫn đến thư mục chứa file make.exe vào `environment variable`
   VD: C:\Program Files (x86)\GnuWin32\bin 
   ### B3: Build project
