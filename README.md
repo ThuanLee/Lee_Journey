@@ -14,7 +14,7 @@
   
 ## II, Mô tả chung về trò chơi
   **Thể loại:** `Sinh tồn`, `Platform`, `Tính điẻm theo thời gian thực`  
-  **Cốt truyện:** Trong Lee's Journey, bạn được nhập vai vào chàng hiệp sĩ Lee trên con đường giải cứu thế giới. Nhiệm vụ của bạn là né tránh các đợt tấn công bằng thiên       thạch của những   tên pháp sư Trunghoa để sống sót được lâu nhất trước khi chúng cạn Mana.  
+  **Cốt truyện:** Trong Lee's Journey, bạn được nhập vai vào chàng hiệp sĩ Lee trên con đường giải cứu thế giới. Nhiệm vụ của bạn là né tránh các đợt tấn công bằng thiên thạch của những tên pháp sư Trunghoa để sống sót được lâu nhất trước khi chúng cạn Mana.  
   **Ý tưởng:** Dựa trên những game sinh tồn Endless như Dino, Flappy Bird, Temple run,...  
 
 ### III, Các chức năng của trò chơi
@@ -36,4 +36,6 @@
   - Thêm hệ thống Highscore
   - Thêm tính năng lưu trữ tiến độ chơi khi Exit giữa chừng
   - Thêm các màn chơi khác nhau để tránh nhàm chán
-  - Thêm hệ thống combat với quái và pickup item ngẫu nhiên trên map.
+  - Thêm hệ thống combat với quái và pickup item ngẫu nhiên trên map  
+ 
+Sau khi hoàn thiện chương trình, thứ em tâm đắc nhất trước hết là kinh nghiệm quản lý một project lớn, cách chia nhỏ từng file, từng class sao cho dễ sửa đổi, nâng  cấp. Tiếp sau đó là kinh nghiệm lập trình hướng đối tượng - kiến thức được áp dụng trong suốt quá trình làm game của em. Và cuối cùng là việc làm game đã tiếp thêm niềm đam mê lập trình cho bản thân em, lập trình không chỉ khô khan như học thuật toán, cấu trúc dữ liệu,.. mà còn 
