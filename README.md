@@ -6,7 +6,7 @@
   Cách 2: Mở terminal tại thư mục muốn lưu project, sử dụng lệnh `git init` để khởi tạo Git, sau đó dùng lệnh `git clone https://github.com/ThuanLee/Lee_Journey.git` để clone project về máy  
   ### B2: Cài đặt Make
   Tải và cài đặt Make từ đường link sau: [http://gnuwin32.sourceforge.net/packages/make.htm](http://gnuwin32.sourceforge.net/packages/make.htm)  
-  Thêm đường dẫn đến thư mục chứa file make.exe vào `environment variable`
+  Thêm đường dẫn đến thư mục chứa file make.exe vào `environment variable`  
   VD: C:\Program Files (x86)\GnuWin32\bin 
   ### B3: Build project
   Mở terminal tại thư mục chứa project, sử dụng lệnh `make` để build  
