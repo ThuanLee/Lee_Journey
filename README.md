@@ -2,10 +2,11 @@
 
 ## I, Hướng dẫn cài đặt và chạy game
   ### B1: Tải project về
-  #### Cách 1: Trên Github, chọn Code => Download ZIP
-  ![image](https://user-images.githubusercontent.com/100220743/169698748-5f7a8c92-6025-4a1a-badb-790e85227a61.png)
-  #### Cách 2: Sử dụng lệnh: git clone https://github.com/ThuanLee/Lee_Journey.git trên terminal sau khi đã cài Git  
+  Cách 1: Trên Github, chọn Code => Download ZIP
+  ![image](https://user-images.githubusercontent.com/100220743/169698748-5f7a8c92-6025-4a1a-badb-790e85227a61.png)  
+  Cách 2: Sử dụng lệnh: git clone https://github.com/ThuanLee/Lee_Journey.git trên terminal sau khi đã cài Git  
   ### B2: Cài đặt Make
-  #### Tải và cài đặt Make từ đường link sau: [(http://gnuwin32.sourceforge.net/packages/make.htm)](http://gnuwin32.sourceforge.net/packages/make.htm)  
+  Tải và cài đặt Make từ đường link sau: [(http://gnuwin32.sourceforge.net/packages/make.htm)](http://gnuwin32.sourceforge.net/packages/make.htm)  
+  Thêm đường dẫn đến thư mục vừa cài đặt Make vào 'environment variable'
     
     
