@@ -15,8 +15,11 @@
   
 ## II, Mô tả chung về trò chơi
   **Thể loại:** `Sinh tồn`, `Platform`, `Tính điẻm theo thời gian thực`  
+  
   **Cốt truyện:** Trong Lee's Journey, bạn được nhập vai vào chàng hiệp sĩ Lee trên con đường giải cứu thế giới. Nhiệm vụ của bạn là né tránh các đợt tấn công bằng thiên thạch của những tên pháp sư Trunghoa để sống sót được lâu nhất trước khi chúng cạn Mana.  
-  **Ý tưởng:** Dựa trên những game sinh tồn Endless như Dino, Flappy Bird, Temple run,...    
+  
+  **Ý tưởng:** Dựa trên những game sinh tồn Endless như Dino, Flappy Bird, Temple run,...  
+  
   **Link Youtube:** https://youtu.be/JXpSl5eovLk
 
 ### III, Các chức năng của trò chơi
