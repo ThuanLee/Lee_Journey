@@ -31,4 +31,9 @@
   - Sử dụng thuật toán xử lý va chạm AABB  
 
 ### V, Kết luận
-  Do là dự án game đầu tay nên không thể tránh khỏi các thiếu xót, mong rằng sẽ nhận được góp ý từ mọi người. Mình sẽ update các bản vá lỗi để game được hoàn thiện hơn.
+  Do là dự án game đầu tay nên không thể tránh khỏi các thiếu xót, mong rằng sẽ nhận được góp ý từ mọi người. Mình sẽ update các bản vá lỗi để game được hoàn thiện       hơn.  
+  Hướng phát triển tiếp theo của game dự kiến sẽ là:
+  - Thêm hệ thống Highscore
+  - Thêm tính năng lưu trữ tiến độ chơi khi Exit giữa chừng
+  - Thêm các màn chơi khác nhau để tránh nhàm chán
+  - Thêm hệ thống combat với quái và pickup item ngẫu nhiên trên map.
