@@ -85,7 +85,7 @@ void Menu::initSprite()
         std::cout << "ERROR::MENU::INITSPRITE::Can't load file!!" << std::endl;
     }
     this->menuBackground.setTexture(this->background);
-    this->menuBackground.scale(2.f, 2.f);
+    this->menuBackground.scale(2.f, 2.2f);
     this->menuBackground.setPosition(0.f, 0.f); 
 
     //Load game over background

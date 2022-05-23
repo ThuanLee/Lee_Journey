@@ -50,7 +50,7 @@ void Enemy::randomPos()
     {
         this->pos.x = WINDOW_WIDTH + 2 * ENEMY_FRAME_WIDTH;
     }
-    this->pos.y = rand() % 600;
+    this->pos.y = rand() % 700 - 100;
 }
 
 bool Enemy::killEnemy()
