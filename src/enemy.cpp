@@ -99,10 +99,6 @@ void Enemy::updateCollision(Player *p)
         eGlobalBound = sf::FloatRect(eLeft + 54.f, eTop + 88.f, 50.f, 20.f);
     }
 
-    // this->shape.setOutlineThickness(0.5f);
-    // this->shape.setPosition(eGlobalBound.left, eGlobalBound.top);
-    // this->shape.setSize(sf::Vector2f(eGlobalBound.width, eGlobalBound.height));
-
     //Enemy out of screen
     this->enemyOutScreen();
 
@@ -180,7 +176,6 @@ void Enemy::updateEnemy(Player *p)
 void Enemy::renderEnemy(sf::RenderTarget &target)
 {
     target.draw(this->sprite);
-    //target.draw(this->shape);
 }  
 
 //****************************Enemies*******************************//
