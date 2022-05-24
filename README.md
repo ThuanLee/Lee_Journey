@@ -18,7 +18,7 @@
   Giờ chỉ cần nhấn đúp vào file .exe vừa được tạo ra để chạy game  
   
 ## II, Mô tả chung về trò chơi
-  **Thể loại:** `Sinh tồn`, `Platform`, `Tính điẻm theo thời gian thực`  
+  **Thể loại:** `Sinh tồn`, `Nhập vai`, `Platform`, `Tính điẻm theo thời gian thực`  
   
   **Cốt truyện:** Trong Lee's Journey, bạn được nhập vai vào chàng hiệp sĩ Lee trên con đường giải cứu thế giới. Nhiệm vụ của bạn là né tránh các đợt tấn công bằng thiên thạch của những tên pháp sư Trunghoa để sống sót được lâu nhất trước khi chúng cạn Mana.  
   
